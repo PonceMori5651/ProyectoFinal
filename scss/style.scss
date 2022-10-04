@@ -1,0 +1,358 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-color: beige;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; }
+
+/*NAV*/
+.banner_header, .navbar, .dropdown-menu {
+  background-image: url("../images/banner_header.jpg"); }
+
+.dropdown-menu .dropdown-item {
+  color: white; }
+
+.dropdown-menu li:hover .dropdown-item {
+  color: black; }
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between; }
+
+.navbar-brand {
+  margin: 0 5rem 0 0; }
+
+.grilla {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+  min-height: 100vh; }
+
+header {
+  grid-area: header; }
+
+main {
+  grid-area: main; }
+
+footer {
+  grid-area: footer;
+  height: auto;
+  background-image: url("../images/banner_header.jpg");
+  display: flex;
+  flex-direction: column; }
+
+.footer_info {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 30px;
+  color: white;
+  padding: 20px 0; }
+
+p {
+  margin: 0; }
+
+.footer_derechos {
+  height: 40px;
+  background-color: #0d0d2b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.footer_derechos p {
+  text-align: center; }
+
+.footer_box {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.footer_box img {
+  height: 100px;
+  width: 100px;
+  border-radius: 200px; }
+
+.footer_box H2 {
+  font-weight: bold;
+  text-align: center; }
+
+.footer_box p {
+  text-align: center; }
+
+.footer_iconos {
+  font-size: 25px; }
+
+.bi-facebook:hover {
+  color: blue;
+  font-size: 30px; }
+
+.bi-whatsapp:hover {
+  color: green;
+  font-size: 30px; }
+
+.bi-instagram:hover {
+  color: #aa2e43;
+  font-size: 30px; }
+
+.bi-pinterest:hover {
+  color: red;
+  font-size: 30px; }
+
+.bi-youtube:hover {
+  color: #6d0909;
+  font-size: 30px; }
+
+.main_inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 3rem 0; }
+  .main_inicio__arriba {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 3rem; }
+    .main_inicio__arriba img {
+      width: 100%;
+      min-width: 360px; }
+    .main_inicio__arriba h1 {
+      font-weight: 700;
+      text-align: center; }
+  .main_inicio h2 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem; }
+  .main_inicio iframe {
+    width: 100%;
+    min-width: 360px; }
+
+#whatsaap {
+  width: 80px;
+  height: auto;
+  position: fixed;
+  bottom: 20px;
+  right: 20px; }
+
+.sombras {
+  box-shadow: #26394d 0px 20px 30px -10px; }
+
+.titulo_page {
+  text-align: center;
+  padding: 50px;
+  font-weight: 900;
+  font-size: 50px; }
+  .titulo_page p {
+    display: inline-block;
+    border-bottom: 1px solid black; }
+
+.contacto_principal {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 580px 500px;
+  grid-template-areas: "datos formulario" "mapa mapa";
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+  .contacto_principal .contacto_datos {
+    grid-area: datos;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #009fe5;
+    color: #ffffff;
+    line-height: 2rem;
+    width: 90%;
+    height: 90%; }
+    .contacto_principal .contacto_datos h5 {
+      color: #f9b03e;
+      font-weight: 900; }
+  .contacto_principal .contacto_formulario {
+    grid-area: formulario;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 10px; }
+    .contacto_principal .contacto_formulario h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px; }
+    .contacto_principal .contacto_formulario form {
+      width: 100%; }
+      .contacto_principal .contacto_formulario form fieldset {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%; }
+        .contacto_principal .contacto_formulario form fieldset .cajas_formulario {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          width: 100%; }
+          .contacto_principal .contacto_formulario form fieldset .cajas_formulario input {
+            width: 50%;
+            margin-right: 3rem; }
+          .contacto_principal .contacto_formulario form fieldset .cajas_formulario label {
+            margin-left: 3rem; }
+          .contacto_principal .contacto_formulario form fieldset .cajas_formulario select {
+            width: 50%;
+            height: 20%;
+            margin-right: 3rem; }
+          .contacto_principal .contacto_formulario form fieldset .cajas_formulario textarea {
+            resize: none;
+            width: 50%;
+            height: 100px;
+            margin-right: 3rem; }
+  .contacto_principal iframe {
+    grid-area: mapa;
+    width: 90%;
+    height: 90%; }
+
+.privacidad {
+  display: flex;
+  font-size: 80%; }
+
+#boton_enviar {
+  width: 140px; }
+
+.parrafos_portafolio {
+  color: #383838;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 2rem 2rem 2rem;
+  text-align: center; }
+
+.fotos_portafolio {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
+  grid-template-rows: auto auto auto 400px;
+  grid-template-areas: "foto1 foto3 foto3" "foto6 foto6 foto2" "foto4 foto5 foto5" "spotify spotify spotify";
+  justify-items: stretch;
+  align-items: stretch;
+  justify-content: center;
+  row-gap: 3rem;
+  column-gap: 3rem; }
+
+.tamaño_fotos, #foto1, #foto2, #foto3, #foto4, #foto5, #foto6 {
+  width: 100%;
+  height: 100%; }
+
+#foto1 {
+  grid-area: foto1; }
+
+#foto2 {
+  grid-area: foto2; }
+
+#foto3 {
+  grid-area: foto3; }
+
+#foto4 {
+  grid-area: foto4; }
+
+#foto5 {
+  grid-area: foto5; }
+
+#foto6 {
+  grid-area: foto6; }
+
+#spotify {
+  grid-area: spotify; }
+
+.parrafo_general {
+  color: #383838;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 3rem 2rem 3rem; }
+
+.h2_nosotros {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; }
+
+.tamaño_img_nosotros {
+  width: 60px;
+  height: auto;
+  position: relative;
+  bottom: 17px; }
+
+.h2_politica {
+  text-align: center;
+  margin: 2rem; }
+
+.h1_main {
+  font-weight: bold;
+  text-align: center; }
+
+.h2_main {
+  font-weight: 900; }
+
+#img1 {
+  width: 100%;
+  height: 600px; }
+
+#img2 {
+  width: 100%;
+  height: 600px; }
+
+#img3 {
+  width: 100%;
+  height: 600px; }
+
+@media only screen and (max-width: 600px) {
+  .main_inicio__arriba {
+    flex-direction: column; }
+  .contacto_principal .contacto_formulario form fieldset .cajas_formulario input {
+    margin-right: 1rem; }
+  .contacto_principal .contacto_formulario form fieldset .cajas_formulario label {
+    margin-left: 1rem; }
+  .contacto_principal .contacto_formulario form fieldset .cajas_formulario select {
+    width: 40%;
+    margin-right: 1rem; }
+  .contacto_principal .contacto_formulario form fieldset .cajas_formulario textarea {
+    width: 80%;
+    margin-right: 1rem; }
+  .footer_info {
+    flex-direction: column; }
+  #whatsaap {
+    width: 60px; }
+  .contacto_principal {
+    grid-template-columns: 90%;
+    grid-template-rows: 600px 500px 500px;
+    grid-template-areas: "datos" "formulario" "mapa"; }
+  .contacto_principal .contacto_datos {
+    height: 100%;
+    width: 100%; }
+  .contacto_principal .contacto_formulario {
+    height: 100%;
+    width: 100%; }
+  .fotos_portafolio {
+    grid-template-columns: 90%;
+    grid-template-rows: auto auto auto auto auto auto 400px;
+    grid-template-areas: "foto1" "foto2" "foto3" "foto6" "foto5" "foto4" "spotify"; }
+  .titulo_page {
+    font-size: 30px; }
+  #img1 {
+    height: 300px; }
+  #img2 {
+    height: 300px; }
+  #img3 {
+    height: 300px; } }
