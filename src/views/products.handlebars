@@ -1,0 +1,67 @@
+Hola Bienvenido: {{name}} {{lastname}}<br><br>
+Email: {{email}}<br><br>
+{{#if admin}}
+<p>Eres usuario administrador</p>
+{{else}}
+<p>Eres un usuario normal</p>
+{{/if}}
+<br><br>
+<a href="/carts/carritoCompras"><button id="viewCart">Ver Carrito</button></a>
+<br><br>
+<form action="/products" method="post" enctype="multipart/form-data" id="formProduct">
+    <label for="title">Titulo</label>
+    <input type="text" name="title" id="title" required><br><br>
+    <label for="description">Descripcion</label>
+    <input type="text" name="description" id="description" required><br><br>
+    <label for="price">Precio</label>
+    <input type="Number" name="price" id="price" required><br><br>
+    <label for="code">Codigo</label>
+    <input type="text" name="code" id="code" required><br><br>
+    <label for="stock">Stock</label>
+    <input type="Number" name="stock" id="stock" required><br><br>
+    <label for="category">Categoria</label>
+    <input type="text" name="category" id="category" required><br><br>
+    <input type="submit" value="Enviar">
+</form>
+<br><br>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Codigo</th>
+        <th>Stock</th>
+        <th>Categoria</th>
+        <th>Estado</th>
+        <th>Borrar</th>
+    </tr>
+    {{!-- <tbody id="tableProductsData"> --}}
+    {{#each docs}}
+        <tr id="{{this._id}}">
+            <td><a href="/productDetail?id={{this._id}}">{{this._id}}</a></td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.status}}</td>
+            <td><button class="deleteButton" id="deleteButton_{{this._id}}" onclick="deleteProduct('{{this._id}}')">Borrar</button></td>
+        </tr>
+    {{/each}}
+{{!--     </tbody> --}}
+</table>
+<br><br><br>
+{{#if hasPrevPage}}
+<a href="/products?page={{prevPage}}">Pagina Anterior</a>
+{{/if}}
+<br><br><br>
+{{#if hasNextPage}}
+<a href="/products?page={{nextPage}}">Pagina Siguiente</a>
+{{/if}}
+<br><br><br>
+<a href="/logout"><button>Cerrar Sessión</button></a>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTime.js"></script>
+<script src="/js/product.js"></script>

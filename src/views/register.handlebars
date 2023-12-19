@@ -1,0 +1,15 @@
+<h1>Registro</h1>
+<br><br>
+<a href="/api/session/github">Inicia Sesión con GitHub</a>
+<br><br>
+<p>{{error}}</p>
+<form action="/api/session/register" method="POST">
+  Nombre: <input type="text" name="name"><br><br>
+  Apellido: <input type="text" name="lastname"><br><br>
+  Email: <input type="text" name="email"><br><br>
+  Edad: <input type="text" name="age"><br><br>
+  Contraseña: <input type="password" name="password"><br><br>
+
+  <input type="submit" value="Registrar">
+
+</form>

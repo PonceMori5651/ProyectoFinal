@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: blue;">Bienvenido</h1>
+    <form action="/api/product" method="post" enctype="multipart/form-data">
+
+        <label for="title">Titulo</label>
+        <input type="text" name="title"><br><br>
+        <label for="description">Descripcion</label>
+        <input type="text" name="description"><br><br>
+        <label for="price">Precio</label>
+        <input type="text" name="price"><br><br>
+        <label for="thumbnails">Imagen</label>
+        <input type="file" name="thumbnails" multiple><br><br>
+        <label for="code">Codigo</label>
+        <input type="text" name="code"><br><br>
+        <label for="stock">Stock</label>
+        <input type="text" name="stock"><br><br>
+        <label for="category">Categoria</label>
+        <input type="text" name="category"><br><br>
+
+        <input type="submit" value="Enviar">
+
+    </form>
+</body>
+</html>

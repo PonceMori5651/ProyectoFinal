@@ -1,0 +1,28 @@
+<h1>Carrito de Compra</h1>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Codigo</th>
+        <th>Categoria</th>
+        <th>Cantidad</th>
+        <th>Borrar</th>
+    </tr>
+    <tbody id="tableProductsData">
+    {{#each cart}}
+        <tr id="deleted_{{this._id}}">
+            <td><a href="/productDetail?id={{this._id}}">{{this._id}}</a></td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.quantity}}</td>
+            <td><button class="deleteButton" id="deleteButton_{{this._id}}" onclick="deleteProduct('{{this._id}}')">Borrar</button></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,56 @@
+<h1>Hola Bienvenido {{name}}</h1>
+<form action="/realtimeproducts" method="post" enctype="multipart/form-data" id="formProduct">
+    <label for="title">Titulo</label>
+    <input type="text" name="title" id="title" required><br><br>
+    <label for="description">Descripcion</label>
+    <input type="text" name="description" id="description" required><br><br>
+    <label for="price">Precio</label>
+    <input type="Number" name="price" id="price" required><br><br>
+    <label for="code">Codigo</label>
+    <input type="text" name="code" id="code" required><br><br>
+    <label for="stock">Stock</label>
+    <input type="Number" name="stock" id="stock" required><br><br>
+    <label for="category">Categoria</label>
+    <input type="text" name="category" id="category" required><br><br>
+    <input type="submit" value="Enviar">
+</form>
+<br><br>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Codigo</th>
+        <th>Stock</th>
+        <th>Categoria</th>
+        <th>Estado</th>
+        <th>Borrar</th>
+    </tr>
+    <tbody id="tableProductsData">
+    {{#each docs}}
+        <tr id="deleted_{{this._id}}">
+            <td>{{this._id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.status}}</td>
+            <td><button class="deleteButton" id="deleteButton_{{this._id}}" onclick="deleteProduct('{{this._id}}')">Borrar</button></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
+{{!-- {{#if hasPrevPage}}
+<a href="/views/realtimeproducts?page={{prevPage}}">Pagina Anterior</a>
+{{/if}}
+
+{{#if hasNextPage}}
+<a href="/views/realtimeproducts?page={{nextPage}}">Pagina Siguiente</a>
+{{/if}}
+ --}}   
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/realTime.js"></script>

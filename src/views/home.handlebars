@@ -1,0 +1,30 @@
+<h1>Hola Bienvenido {{name}}</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Precio</th>
+        <th>Codigo</th>
+        <th>Stock</th>
+        <th>Categoria</th>
+        <th>Estado</th>
+        <th>Borrar</th>
+    </tr>
+    <tbody id="tableProductsData">
+    {{#each docs}}
+        <tr id="deleted_{{this._id}}">
+            <td>{{this._id}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.description}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.code}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.status}}</td>
+            <td><button class="deleteButton" id="deleteButton_{{this._id}}" onclick="deleteProduct('{{this._id}}')">Borrar</button></td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
