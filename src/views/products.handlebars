@@ -36,7 +36,7 @@ Email: {{email}}<br><br>
         <th>Estado</th>
         <th>Borrar</th>
     </tr>
-    {{!-- <tbody id="tableProductsData"> --}}
+<tbody id="tableProductsData">
     {{#each docs}}
         <tr id="{{this._id}}">
             <td><a href="/productDetail?id={{this._id}}">{{this._id}}</a></td>
@@ -50,7 +50,7 @@ Email: {{email}}<br><br>
             <td><button class="deleteButton" id="deleteButton_{{this._id}}" onclick="deleteProduct('{{this._id}}')">Borrar</button></td>
         </tr>
     {{/each}}
-{{!--     </tbody> --}}
+</tbody>
 </table>
 <br><br><br>
 {{#if hasPrevPage}}

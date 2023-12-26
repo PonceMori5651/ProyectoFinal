@@ -8,8 +8,8 @@ class UserManagerMongo{
         this.model = userModel
     }
     async getUsers() {
-        const messages = await this.model.find()
-        return messages.map(e=>e.toObject())
+        const users = await this.model.find()
+        return users.map(e=>e.toObject())
     }
     async createUser(data){
         const user = await userModel.findOne({email:data.email})
@@ -18,11 +18,16 @@ class UserManagerMongo{
         }
         if(data.password){
             data.password = createHash(data.password)
+            let userCreated = await this.model.create(data)
+            
+            if(!data.cart){
+                let cartCreated = await managerC.createCart({name:"Default"})
+                await this.model.findByIdAndUpdate(userCreated._id,{$set:{cart:cartCreated._id}})
+            }
+            delete data.password
+            return userCreated
         }
-        let userCreated = await this.model.create(data)
-        userCreated = userCreated.toObject()
-        delete userCreated.password
-        return userCreated
+        return false
     }
     getUserById (id){
         return this.model.findById(id)

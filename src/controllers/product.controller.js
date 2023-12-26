@@ -1,3 +1,4 @@
+const {productsService} = require('../repositories/index')
 const ProductDto = require('../dao/DTOs/ProductDto')
 
 class ProductController{
@@ -22,7 +23,7 @@ class ProductController{
             const limit = Number(req.query.limit) || 10
             const page = Number(req.query.page) || 1
             
-            const products = await this.dto.getProducts(query,limit,page,sortPrice)
+            const products = await productsService.getProducts(query,limit,page,sortPrice)
             if(!products){
                 return res.sendServerError('No se pudo devolver los productos',404)
             }
@@ -34,7 +35,7 @@ class ProductController{
     async getProductById(req,res){
         try {
             const productId = req.params.pid
-            const product = await this.dto.getProductById(productId)
+            const product = await productsService.getProductById(productId)
             if(!product){
                 return res.sendServerError('Product Not Found',404)
             }
@@ -47,7 +48,7 @@ class ProductController{
         try {
             const newProduct = req.body
             const arrayFiles = req.files
-            const productCreated = await this.dto.createProduct(newProduct,arrayFiles)
+            const productCreated = await productsService.createProduct(newProduct,arrayFiles)
             if(!productCreated){
                 return res.sendServerError('Product No creado',404)
             }
@@ -60,7 +61,7 @@ class ProductController{
         try {
             const productId = req.params.pid
             const productUpdated = req.body 
-            const succesUpdated = await this.dto.updateProduct(productId,productUpdated)
+            const succesUpdated = await productsService.updateProduct(productId,productUpdated)
             if(!succesUpdated){
                 return res.sendServerError('Product No actualizado',404)
             }
@@ -72,7 +73,7 @@ class ProductController{
     async deleteProduct(req,res){
         try {
             const productId = req.params.pid
-            const succesDeleted = await this.dto.deleteProduct(productId)
+            const succesDeleted = await productsService.deleteProduct(productId)
             if(!succesDeleted){
                 return res.sendServerError('Product No eliminado',404)
             }

@@ -5,3 +5,4 @@ const addProductCart = async(id) => {
     //const cart = await response.json()
     //console.log(cart)
 }
+

@@ -1,5 +1,5 @@
 const BaseRouter = require('./BaseRouter')
-
+const {cartsService} = require('../repositories/index')
 const uploader = require('../utils/upload')
 const passport = require('passport')
 const ViewController = require('../controllers/view.controller')
@@ -59,11 +59,7 @@ class ViewsRouter extends BaseRouter{
         this.get('/productDetail',['PUBLIC'],viewController.getProductDetail.bind(viewController))
         this.get('/carts/:cid',['PUBLIC'],async(req,res)=>{
             try {
-                let cartId = req.params.cid
-                if(cartId==='carritoCompras'){
-                    cartId = req.session.cartId
-                }
-                //console.log(typeof cartId)
+                let cartId = req.user.cart.toString()
                 const cart = await managerC.getProductsInCart(cartId)
                 const params = {
                     cart
@@ -90,10 +86,13 @@ class ViewsRouter extends BaseRouter{
           
             return next()
           }, (req, res) => {
-            const user = req.session.user
+            let user = req.user
+            user = user.toObject()
             return res.render('profile', { user })
         })
         this.get('/logout',['PUBLIC'], (req, res) => {
+            const cartId = req.user.cart.toString()
+            cartsService.deleteCart(cartId)
             return res.clearCookie('connect.sid').redirect('/login')
         })
         

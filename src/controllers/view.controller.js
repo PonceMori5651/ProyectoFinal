@@ -36,6 +36,7 @@ async createProduct(req,res){
         if(!productCreated){
             return res.render('error')
         }
+        console.log({productCreated})
     } catch (e) {
         const params = {
             error: e.message

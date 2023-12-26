@@ -12,6 +12,7 @@ class CartRouter extends BaseRouter{
         this.delete('/:cid/products/:pid',['PUBLIC'],cartController.deleteProductInCart.bind(cartController))
         this.put('/:cid',['PUBLIC'], cartController.updateCart.bind(cartController))
         this.put('/:cid/products/:pid',['PUBLIC'], )
+        this.post('/purchase',['PUBLIC'], cartController.purchaseCart.bind(cartController));
     }
 }
 module.exports = CartRouter

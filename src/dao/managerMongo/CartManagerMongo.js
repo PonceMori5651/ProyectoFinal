@@ -6,9 +6,10 @@ class CartManagerMongo{
      getCarts() {
         return this.model.find()
     }
-    /*async getProductsInCart(id){
+    async getProductsInCart(id){
         const carts = await this.getCarts()
         const findCart = carts.find(el=>el._id.toString()===id)
+        if(!findCart) return false
         findCart.toObject()
         const array = []
         let qty,obj
@@ -22,7 +23,7 @@ class CartManagerMongo{
         }
         return array
        //return this.model.findOne({_id:id})
-    }*/
+    }
     createCart(newCart){
         return this.model.create(newCart)
     }
@@ -48,6 +49,12 @@ class CartManagerMongo{
         cart.save()
         return cart
     }
+    async updateCartProducts(cartId, newProducts) {
+        const cart = await this.model.findById(cartId);
+        cart.products = newProducts;
+        await cart.save();
+        return
+      }
 
     async updateProductInCart(cart){
         cart.save()

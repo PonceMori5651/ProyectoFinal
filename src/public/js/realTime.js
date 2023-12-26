@@ -18,7 +18,7 @@ formProduct.addEventListener('submit',(event)=>{
     const category = categoryInput.value
     socket.emit('newProductCaS',JSON.stringify({title,description,price,code,stock,category}))
 })
-const table = document.getElementById('tableProductsData')
+let table = document.getElementById('tableProductsData')
 socket.on('newProductSaC',data=>{
     const product = JSON.parse(data)
     const productHTML = `

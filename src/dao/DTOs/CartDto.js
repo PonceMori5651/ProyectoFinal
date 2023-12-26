@@ -35,11 +35,9 @@ class CartDto{
 
     async createProductInCart(cid,pid){
         try {
-            if(cid==='null'){
-                cid = req.session.cartId
-            }
             const cart = await this.manager.getCartById(cid)
             const product = await this.managerP.getProductById(pid)
+            
             const objProduct ={
                 product:product._id,
                 quantity:1

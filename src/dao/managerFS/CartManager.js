@@ -19,7 +19,6 @@ class CartManager{
     
     async createCart(){
         try {
-            console.log('hola')
             const carts = await this.getCarts()
             const newCart = {
                 id: carts.length +1,
